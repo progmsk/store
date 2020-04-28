@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "domain", "domain", "{65AB33F0-A4F0-4DB8-AF20-8B98DFE63E99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store", "domain\Store\Store.csproj", "{2A783C47-9295-4401-8F8D-7D2B545E93A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,5 +18,22 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A783C47-9295-4401-8F8D-7D2B545E93A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A783C47-9295-4401-8F8D-7D2B545E93A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A783C47-9295-4401-8F8D-7D2B545E93A6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2A783C47-9295-4401-8F8D-7D2B545E93A6}.Debug|x64.Build.0 = Debug|Any CPU
+		{2A783C47-9295-4401-8F8D-7D2B545E93A6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2A783C47-9295-4401-8F8D-7D2B545E93A6}.Debug|x86.Build.0 = Debug|Any CPU
+		{2A783C47-9295-4401-8F8D-7D2B545E93A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A783C47-9295-4401-8F8D-7D2B545E93A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A783C47-9295-4401-8F8D-7D2B545E93A6}.Release|x64.ActiveCfg = Release|Any CPU
+		{2A783C47-9295-4401-8F8D-7D2B545E93A6}.Release|x64.Build.0 = Release|Any CPU
+		{2A783C47-9295-4401-8F8D-7D2B545E93A6}.Release|x86.ActiveCfg = Release|Any CPU
+		{2A783C47-9295-4401-8F8D-7D2B545E93A6}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2A783C47-9295-4401-8F8D-7D2B545E93A6} = {65AB33F0-A4F0-4DB8-AF20-8B98DFE63E99}
 	EndGlobalSection
 EndGlobal
