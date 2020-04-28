@@ -4,6 +4,15 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\domain\Store\Store.csproj" />
+    <ProjectReference Include="..\..\infrastructure\Store.Memory\Store.Memory.csproj" />
+  </ItemGroup>
+
 
 
 </Project>
