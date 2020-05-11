@@ -1,7 +1,4 @@
 ﻿using Moq;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace Store.Tests
@@ -37,7 +34,7 @@ namespace Store.Tests
                               .Returns(new[] { new Book(2, "", "", "") });
 
             var bookService = new BookService(bookRepositoryStub.Object);
-            var invalidIsbn = "12345-67890";
+            var invalidIsbn = "Ritchie";
 
             var actual = bookService.GetAllByQuery(invalidIsbn);
 
