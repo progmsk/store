@@ -5,7 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Store.Memory;
 using System;
-using System.Net.Security;
 
 namespace Store.Web
 {
@@ -31,6 +30,7 @@ namespace Store.Web
             });
 
             services.AddSingleton<IBookRepository, BookRepository>();
+            services.AddSingleton<IOrderRepository, OrderRepository>();
             services.AddSingleton<BookService>();
         }
 
