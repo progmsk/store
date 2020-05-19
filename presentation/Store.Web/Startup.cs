@@ -5,7 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Store.Memory;
 using System;
-using System.Net.Security;
 
 namespace Store.Web
 {
