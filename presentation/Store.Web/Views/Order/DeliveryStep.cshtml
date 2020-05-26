@@ -1,0 +1,33 @@
+﻿@using Store.Web.Controllers
+@model Form
+
+@{
+    ViewData["Title"] = "Параметры доставки";
+}
+
+<h1>Параметры доставки</h1>
+<form action="@Url.Action(nameof(OrderController.NextDelivery))" method="post">
+    <input type="hidden" name="id" value="@Model.OrderId" />
+    <input type="hidden" name="uniqueCode" value="@Model.UniqueCode" />
+    <input type="hidden" name="step" value="@Model.Step" />
+    @foreach (var field in Model.Fields)
+    {
+        if (field is HiddenField hiddenField)
+        {
+            <input type="hidden" name="values[@field.Name]" value="@field.Value" />
+        }
+        else if (field is SelectionField selectionField)
+        {
+            <div class="form-group">
+                <label for="values[@field.Name]">@field.Label</label>
+                <select class="form-control" name="values[@field.Name]">
+                    @foreach (var item in selectionField.Items)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+            </div>
+        }
+    }
+    <button type="submit" class="btn btn-success">Далее</button>
+</form>
