@@ -1,4 +1,4 @@
-﻿@model Book[]
+﻿@model IReadOnlyCollection<BookModel>
 
 @{
     ViewData["Title"] = "Результаты поиска";
@@ -6,7 +6,7 @@
 
 <h1>Результаты поиска</h1>
 
-@if (Model.Length == 0)
+@if (Model.Count == 0)
 {
     <p>Ничего не найдено.</p>
 }

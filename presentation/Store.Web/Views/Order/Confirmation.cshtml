@@ -1,4 +1,4 @@
-﻿@model ConfirmationModel
+﻿@model OrderModel
 
 @{
     ViewData["Title"] = "Подтверждение мобильного";
@@ -6,25 +6,36 @@
 
 <h1>Подтверждение мобильного</h1>
 
-<form action="@Url.Action("Confirmate")" method="post">
-    <input type="hidden" name="id" value="@Model.OrderId" />
+<p>
+    Введите <em>код подтверждения</em> из SMS.
+</p>
+
+<form action="@Url.Action(nameof(OrderController.ConfirmCellPhone))" method="post">
     <input type="hidden" name="cellPhone" value="@Model.CellPhone" />
     <div class="form-group">
-        <label for="code">Код потдверждения</label>
-        <input type="text" class="form-control" name="code" placeholder="0000" />
-        @if (Model.Errors.ContainsKey("code"))
+        <label for="confirmationCode">Код потдверждения</label>
+        <input type="text" class="form-control" name="confirmationCode" placeholder="0000" />
+        @if (Model.Errors.ContainsKey("confirmationCode"))
         {
-            <small class="form-text text-danger">@Model.Errors["code"]</small>
+            <small class="form-text text-danger">@Model.Errors["confirmationCode"]</small>
         }
     </div>
     <button type="submit" class="btn btn-success">Проверить</button>
 </form>
 
+<p>
+    Если на ваш номер SMS не пришла в течение минуты, проверьте правильность номера и
+    повторите отправку кода.
+</p>
+
 <form action="@Url.Action("SendConfirmationCode")" method="post">
-    <input type="hidden" name="id" value="@Model.OrderId" />
     <div class="form-group">
         <label for="cellPhone">Мобильный телефон</label>
         <input type="text" class="form-control" name="cellPhone" value="@Model.CellPhone" />
+        @if (Model.Errors.ContainsKey("cellPhone"))
+        {
+            <small class="form-text text-danger">@Model.Errors["cellPhone"]</small>
+        }
     </div>
     <button type="submit" class="btn btn-success">Повторить код</button>
 </form>
