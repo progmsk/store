@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Store.Web.Models
+namespace Store.Web.App
 {
     public class OrderModel
     {

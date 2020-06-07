@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Store.Contractors;
 using Store.Memory;
 using Store.Messages;
+using Store.Web.App;
 using Store.Web.Contractors;
 using Store.YandexKassa;
 using System;
@@ -25,6 +26,7 @@ namespace Store.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddHttpContextAccessor();
             services.AddDistributedMemoryCache();
             services.AddSession(options =>
             {
@@ -41,6 +43,7 @@ namespace Store.Web
             services.AddSingleton<IPaymentService, YandexKassaPaymentService>();
             services.AddSingleton<IWebContractorService, YandexKassaPaymentService>();
             services.AddSingleton<BookService>();
+            services.AddSingleton<OrderService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,13 +71,12 @@ namespace Store.Web
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "areas",
+                    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-
-                endpoints.MapAreaControllerRoute(
-                    name: "yandex.kassa",
-                    areaName: "YandexKassa",
-                    pattern: "YandexKassa/{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
