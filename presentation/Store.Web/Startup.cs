@@ -25,7 +25,10 @@ namespace Store.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews(options =>
+            {
+                options.Filters.Add(typeof(ExceptionFilter));
+            });
             services.AddHttpContextAccessor();
             services.AddDistributedMemoryCache();
             services.AddSession(options =>
@@ -49,7 +52,8 @@ namespace Store.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+            //if (env.IsDevelopment())
+            if (false)
             {
                 app.UseDeveloperExceptionPage();
             }
