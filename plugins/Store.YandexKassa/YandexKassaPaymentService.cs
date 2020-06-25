@@ -3,6 +3,7 @@ using Store.Contractors;
 using Store.Web.Contractors;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Store.YandexKassa
 {
@@ -58,6 +59,13 @@ namespace Store.YandexKassa
                 builder.Port = Request.Host.Port.Value;
 
             return builder.Uri;
+        }
+
+        public Task<Uri> StartSessionAsync(IReadOnlyDictionary<string, string> parameters, Uri returnUri)
+        {
+            var uri = StartSession(parameters, returnUri);
+
+            return Task.FromResult(uri);
         }
     }
 }
