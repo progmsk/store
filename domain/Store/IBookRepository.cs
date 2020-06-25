@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Store
 {
     public interface IBookRepository
     {
-        Book[] GetAllByIsbn(string isbn);
-        
-        Book[] GetAllByTitleOrAuthor(string titleOrAuthor);
-        
-        Book GetById(int id);
+        Task<Book[]> GetAllByIsbnAsync(string isbn);
 
-        Book[] GetAllByIds(IEnumerable<int> bookIds);
+        Task<Book[]> GetAllByTitleOrAuthorAsync(string titleOrAuthor);
+
+        Task<Book> GetByIdAsync(int id);
+
+        Task<Book[]> GetAllByIdsAsync(IEnumerable<int> bookIds);
     }
 }
